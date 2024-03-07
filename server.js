@@ -7,6 +7,14 @@ const port = process.env.PORT || 3000;
 // Conectar ao banco de dados SQLite
 const db = new sqlite3.Database('./database.db');
 
+app.get('/', (req, res) => {
+    res.sendFile('index.html', { root: 'public' });
+});
+
+app.get('/seumiau.jpg', (req, res) => {
+    res.redirect('/')
+});
+
 // Rota para fornecer uma imagem de gato aleatória
 app.get('/seugatinho.jpg', (req, res) => {
     // Consultar o banco de dados para obter uma URL de imagem aleatória
