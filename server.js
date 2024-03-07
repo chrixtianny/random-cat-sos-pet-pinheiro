@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/seumiau.jpg', (req, res) => {
-    res.redirect('/')
+    res.sendFile('index.html', { root: 'public'});
 }
 );
 
