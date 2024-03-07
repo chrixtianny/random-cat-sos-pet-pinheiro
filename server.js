@@ -26,7 +26,7 @@ app.get('/seugatinho', (req, res) => {
     db.get('SELECT url FROM images ORDER BY RANDOM() LIMIT 1', (err, row) => {
         if (err || !row || !row.url) {
             // Se houver erro ao acessar o banco de dados ou se o link não for encontrado, tenta buscar a imagem localmente
-            const localImages = fs.readdirSync(localImagesDir).filter(file => file.endsWith('.jpg'));
+            const localImages = fs.readdirSync(localImagesDir).filter(file => file.endsWith('.png'));
             if (localImages.length === 0) {
                 // Se não houver imagens no diretório local, retorna um erro
                 res.status(404).send('Nenhuma imagem encontrada');
